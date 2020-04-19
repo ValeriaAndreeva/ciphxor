@@ -1,4 +1,5 @@
-import com.company.ciphxor;
+package com.company;
+
 import org.kohsuke.args4j.Argument;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
@@ -7,7 +8,7 @@ import org.kohsuke.args4j.Option;
 import java.io.IOException;
 
 
-public class launcher {
+public class Launcher {
 
     @Option(name = "-c", metaVar = "Encoding", usage = "Input File encoding key")
     private String Encoding = "";
@@ -22,7 +23,7 @@ public class launcher {
     private String inputName;
 
     public static void main(String[] args) {
-        new launcher().launch(args);
+        new Launcher().launch(args);
     }
 
     private void launch(String[] args) {
@@ -38,7 +39,7 @@ public class launcher {
             return;
         }
         try {
-            ciphxor.recode(inputName, outputName, Encoding, Decoding);
+            Ciphxor.recode(inputName, outputName, Encoding, Decoding);
             System.out.println("");
         } catch (IOException e) {
             System.err.println(e.getMessage());

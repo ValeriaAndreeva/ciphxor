@@ -4,7 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class ciphxor {
+public class Ciphxor {
     private static byte[] keyToByte(String key) {
         String temp;
         byte[] res = new byte[(int)Math.ceil((float)key.length() / 2)];
@@ -25,11 +25,11 @@ public class ciphxor {
             FileOutputStream out = new FileOutputStream(outFileName);
             byte[] keyarr;
 
-            if (ckey != "" && dkey != "") {
+            if (ckey != null && dkey != null) {
                 throw new IOException("Задайте только один ключ");
             }
-            if (ckey != "" || dkey != "") {
-                if (ckey != "") keyarr = keyToByte(ckey);
+            if (ckey != null || dkey != null) {
+                if (ckey != null) keyarr = keyToByte(ckey);
                 else keyarr = keyToByte(dkey);
                 byte temp;
                 byte res;
@@ -50,7 +50,7 @@ public class ciphxor {
 
         public static void recode(String inputFileName, String outputFileName, String ckey, String dkey) throws IOException {
         try (FileInputStream inputStream = new FileInputStream(inputFileName)) {
-            ciphxor.recode(inputStream, outputFileName, ckey, dkey);
+            Ciphxor.recode(inputStream, outputFileName, ckey, dkey);
         }
     }
 }
